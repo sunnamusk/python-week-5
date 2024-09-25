@@ -1,0 +1,35 @@
+# Complete file handling script
+
+# Task 1: File Creation - Create a new text file and write lines of text
+try:
+    # Create and write to the file
+    with open('my_file.txt', 'w') as file:
+        file.write("This is the first line.\n")
+        file.write("Here is the second line, which contains a number: 42\n")
+        file.write("Finally, the third line is just text.\n")
+
+    # Task 2: File Reading and Display - Reading the file content and displaying it
+    with open('my_file.txt', 'r') as file:
+        content = file.read()
+        print("File contents after writing:")
+        print(content)
+
+    # Task 3: File Appending - Append three more lines to the file
+    with open('my_file.txt', 'a') as file:
+        file.write("This is the fourth line, added later.\n")
+        file.write("The fifth line also contains a number: 123\n")
+        file.write("And the sixth line concludes this file.\n")
+
+    # Task 4: Reading the file again after appending and displaying the updated content
+    with open('my_file.txt', 'r') as file:
+        updated_content = file.read()
+        print("\nFile contents after appending:")
+        print(updated_content)
+
+# Error handling block
+except FileNotFoundError:
+    print("Error: The file was not found.")
+except PermissionError:
+    print("Error: You do not have the necessary permissions to access this file.")
+finally:
+    print("\nFile handling operation complete.")
